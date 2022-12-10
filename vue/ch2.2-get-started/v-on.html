@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 事件绑定</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="clickme!!!" v-on:click="alert(msg);">
+        <input type="button" value="some_function" v-on:click="some_function();">
+    </div>
+
+    <!-- 引入 vue.js 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        const app = new Vue({
+            // el属性，用于给 vue 实例定义作用域
+            el : "#app",
+            // data 属性，给vue实例定义相关数据
+            data: {
+                msg: "hello"
+            },
+            methods:{
+                some_function(){
+                    alert("egg #UNKNOW");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

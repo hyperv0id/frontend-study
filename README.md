@@ -95,3 +95,39 @@ $ npm install vue
 ![](https://pic-1257412153.cos.ap-nanjing.myqcloud.com/images/images/2022/12/10/20221210213142-79700f.png)
 
 
+## 4-vue中事件的定义和使用
+
+### 4.1-绑定事件语法
+
+**语法**：`v-on:[事件名]="函数"`。
+
+事件名有 `click`、`keydown`、`keypress` 等
+
+**注意**：函数/函数的参数需要在vue中或者为全局
+
+```html
+<div id="app">
+    <input type="button" value="clickme!!!" v-on:click="alert(msg);">
+    <input type="button" value="some_function" v-on:click="some_function();">
+</div>
+
+<!-- 引入 vue.js 脚本 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script>
+    const app = new Vue({
+        // el属性，用于给 vue 实例定义作用域
+        el : "#app",
+        // data 属性，给vue实例定义相关数据
+        data: {
+            msg: "hello"
+        },
+        methods:{
+            some_function(){
+                alert("egg #UNKNOW");
+            }
+        }
+    });
+</script>
+```
+
+
