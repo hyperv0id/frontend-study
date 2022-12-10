@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text 和 v-html</title>
+</head>
+<body>
+    <div id="app">
+        <p>你好 cjj</p>
+        <p>{{msg}} cjj</p>
+        <p v-text="msg"> cjj</p>
+        <p v-html="html_msg"> cjj</p>
+    </div>
+
+    <!-- 引入 vue.js 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        const app = new Vue({
+            // el属性，用于给 vue 实例定义作用域
+            el : "#app",
+            // data 属性，给vue实例定义相关数据
+            data: {
+                msg: "hello",
+                html_msg: "<div style='color: red'>hello</div>"
+            }
+        });
+    </script>
+</body>
+</html>
