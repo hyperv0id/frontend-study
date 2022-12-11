@@ -103,7 +103,7 @@ $ npm install vue
 
 简写形式：`@:[事件名]="函数"    `
 
-事件名有 `click`、`keydown`、`keypress` 等
+事件名有 `click`、`click.stop`、`keydown`、`keypress` 等
 
 **注意**：函数/函数的参数需要在vue中或者为全局
 
@@ -191,4 +191,76 @@ $ npm install vue
 
 
 ## 5-基础练习
+
+## 6-`v-for`
+
+就是遍历数组，创建几个重复项
+
+- 期望的绑定值类型：Array | Object | number | string | Iterable
+
+- v-for 的默认方式是尝试就地更新元素而不移动它们。要强制其重新排序元素，你需要用特殊 attribute key 来提供一个排序提示：
+
+```html
+    <div id="app">
+        <p v-for="item in arr">item: {{item}}</p>
+        <p v-for="(item, index) in arr">item: {{item}}, index: {{index}}</p>
+    </div>
+
+    <!-- 引入 vue.js 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        const app = new Vue({
+            // el属性，用于给 vue 实例定义作用域
+            el : "#app",
+            // data 属性，给vue实例定义相关数据
+            data: {
+                arr:[1,2,3,4,5,6,7,8,9]
+            }
+        });
+    </script>
+```
+
+输出：
+![](https://pic-1257412153.cos.ap-nanjing.myqcloud.com/images/images/2022/12/11/20221211230851-189ee2.png)
+
+## 7-案例：记事本
+
+展示：![](https://pic-1257412153.cos.ap-nanjing.myqcloud.com/images/images/2022/12/11/20221211231218-942997.png)
+
+```html
+    <div id="app">
+        <input type="text" v-model="new_note"><input type="button" value="添加记事本" @click="add_note();">
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+        <input type="button" value="清楚所有笔记" @click="clear_notes();">
+    </div>
+
+    <!-- 引入 vue.js 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        const app = new Vue({
+            // el属性，用于给 vue 实例定义作用域
+            el : "#app",
+            // data 属性，给vue实例定义相关数据
+            data: {
+                arr:["占位消息1","占位消息2"],
+                new_note : ""
+            },
+            methods:{
+                add_note(){
+                    if(this.new_note != ""){
+                        this.arr.push(this.new_note);
+                        this.new_note = ""
+                    }
+                },
+                clear_notes(){
+                    this.arr = [];
+                    this.new_note = "";
+                }
+            }
+        });
+    </script>
+```
+
 

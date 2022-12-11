@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+</head>
+<body>
+    <div id="app">
+        <p v-for="item in arr">item: {{item}}</p>
+        <p v-for="(item, index) in arr">item: {{item}}, index: {{index}}</p>
+    </div>
+
+    <!-- 引入 vue.js 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        const app = new Vue({
+            // el属性，用于给 vue 实例定义作用域
+            el : "#app",
+            // data 属性，给vue实例定义相关数据
+            data: {
+                arr:[1,2,3,4,5,6,7,8,9]
+            }
+        });
+    </script>
+</body>
+</html>
