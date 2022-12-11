@@ -101,6 +101,8 @@ $ npm install vue
 
 **语法**：`v-on:[事件名]="函数"`。
 
+简写形式：`@:[事件名]="函数"    `
+
 事件名有 `click`、`keydown`、`keypress` 等
 
 **注意**：函数/函数的参数需要在vue中或者为全局
@@ -130,4 +132,63 @@ $ npm install vue
 </script>
 ```
 
+
+## 4- `v-show`, `v-if`, `v-bind`
+
+### 4.1- `v-show`
+
+控制标签是否显示，底层控制标签的 `display` 属性
+
+```html
+    <div>v-show控制标签是否显示：</div>
+    <div id="app">
+        <p>展示：<span v-show="true">JNKBDHJ</span></p>
+        <p>不展示: <span v-show="false">JNKBDHJ</span></p>
+    </div>
+```
+
+输出：![](https://pic-1257412153.cos.ap-nanjing.myqcloud.com/images/images/2022/12/11/20221211224047-f86f99.png)
+
+### 4.2- `v-if`
+
+
+控制标签是否显示，底层控制标签的 **DOM**
+
+```html
+    <div>v-if控制标签是否存在：</div>
+    <div id="app">
+        <p>存在：<span v-show="true">JNKBDHJ</span></p>
+        <p>不存在: <span v-show="false">JNKBDHJ</span></p>
+    </div>
+```
+
+### 4.3- `v-bind`
+
+给元素添加属性，如 `class`, `title`, `href` 等等，简写形式为 `:[prop]`
+
+```html
+    <div>v-bind添加元素属性</div>
+    <div id="app">
+        <p>style 案例：<span v-bind:class="class_name">JNKBDHJ</span></p>
+        <p>href + 简写 案例: <a :href="url">some_link</a></p>
+        <p>image 案例：<img :src="'/path/to/images/' + url" /></p>
+    </div>
+
+    <!-- 引入 vue.js 脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script>
+        const app = new Vue({
+            // el属性，用于给 vue 实例定义作用域
+            el : "#app",
+            // data 属性，给vue实例定义相关数据
+            data: {
+                url: "https://www.baidu.com",
+                class_name:'main'
+            },
+        });
+    </script>
+```
+
+
+## 5-基础练习
 

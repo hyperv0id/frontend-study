@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vue 事件绑定</title>
+    <title>vue show 案例</title>
 </head>
 <body>
+    <div>v-show控制标签是否显示：</div>
     <div id="app">
-        <input type="button" value="clickme!!!" v-on:click="alert(msg);">
-        <input type="button" value="some_function" v-on:click="some_function();">
-        <input type="button" value="@event" @click="some_func_with_var(2);">
+        <p>展示：<span v-show="true">JNKBDHJ</span></p>
+        <p>不展示: <span v-show="false">JNKBDHJ</span></p>
     </div>
 
     <!-- 引入 vue.js 脚本 -->
